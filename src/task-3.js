@@ -6,8 +6,6 @@ const makeTransaction = transaction => {
   const delay = randomIntegerFromInterval(200, 500);
   const canProcess = Math.random() > 0.3;
 
-  console.log('del', delay);
-
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (canProcess) {
