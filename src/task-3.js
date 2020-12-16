@@ -9,7 +9,7 @@ const makeTransaction = transaction => {
   let promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (canProcess) {
-        resolve([transaction.id, delay]);
+        resolve({ id: transaction.id, time: delay });
       } else {
         reject(transaction.id);
       }
@@ -18,7 +18,7 @@ const makeTransaction = transaction => {
   return promise;
 };
 
-const logSuccess = ([id, time]) => {
+const logSuccess = ({ id, time }) => {
   console.log(`Transaction ${id} processed in ${time}ms`);
 };
 
